@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Resume History</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Resume History</h1>
+
+    <table class="history-table">
+
+        <tr>
+            <th>ID</th>
+            <th>File Name</th>
+            <th>ATS Score</th>
+            <th>Skills</th>
+            <th>Suggestions</th>
+        </tr>
+
+        <tr th:each="resume : ${resumes}">
+            <td th:text="${resume.id}"></td>
+
+            <td th:text="${resume.fileName}"></td>
+
+            <td>
+                <span class="score"
+                      th:text="${resume.atsScore + '%'}">
+                </span>
+            </td>
+
+            <td th:text="${resume.skills}"></td>
+
+            <td th:text="${resume.suggestions}"></td>
+        </tr>
+
+    </table>
+
+    <br>
+
+    <a href="/" class="back-btn">
+        Back to Analyzer
+    </a>
+
+</div>
+
+</body>
+</html>
